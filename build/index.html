@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board - Login</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login to Kanban Board</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" id="loginButton">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </div>
+
+    <script>
+        // Mocked Authentication Logic
+        const mockUsers = [
+            { username: "user1", password: "password123" },
+            { username: "user2", password: "password456" }
+        ];
+
+        const form = document.getElementById("loginForm");
+        const errorMessage = document.getElementById("error-message");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check credentials
+            const user = mockUsers.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                // Simulate generating a JWT (In a real app, you would receive this from an API)
+                const jwt = "sampleJWTtoken";
+                localStorage.setItem("jwt", jwt);
+                window.location.href = "kanban-board.html"; // Redirect to Kanban Board
+            } else {
+                errorMessage.textContent = "Invalid username or password. Please try again.";
+            }
+        });
+    </script>
+</body>
+
+</html>
