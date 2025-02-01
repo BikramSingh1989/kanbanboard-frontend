@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban Board</title>
-    <link rel="stylesheet" href="kanban.css">
+    <title>Krazy Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="kanban-board">
-        <h2>Kanban Board</h2>
-        <button id="logoutButton">Logout</button>
-        <div id="board" class="board">
-            <!-- Kanban columns go here -->
+    <!-- Header -->
+    <header>
+        <h1 class="logo">Krazy Kanban Board</h1>
+        <div class="header-buttons">
+            <button class="btn">Login</button>
+            <button class="btn">New Ticket</button>
         </div>
+    </header>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
     </div>
-
-    <script>
-        // Check if JWT is stored in localStorage
-        const jwt = localStorage.getItem("jwt");
-        if (!jwt) {
-            window.location.href = "index.html"; // Redirect to login page if not authenticated
-        }
-
-        document.getElementById("logoutButton").addEventListener("click", () => {
-            localStorage.removeItem("jwt"); // Remove JWT from localStorage
-            window.location.href = "index.html"; // Redirect to login page
-        });
-
-        // Kanban board logic goes here
-    </script>
 </body>
+</html>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krazy Kanban Board</title>
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>
